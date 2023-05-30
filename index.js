@@ -131,6 +131,7 @@ function next() {
 // listener - prev
 function prev() {
   currentQuestion--;
+  score--;
 
   if (currentQuestion <= 0) {
     prevBtn.classList.add('hide');
@@ -174,5 +175,14 @@ function submit() {
   submitBtn.classList.add('hide');
   trueBtn.classList.add('hide');
   falseBtn.classList.add('hide');
-  questionText.innerHTML = "Congratulations on submitting the quiz!";
+
+  if (score === 0) {
+    questionText.innerHTML = "You've got " + score + " score, you should try again LOL.";
+  } else if (score === 1) {
+    questionText.innerHTML = "You've got " + score + " score, there is still a chance.";
+  } else if (score === 2) {
+    questionText.innerHTML = "You've got " + score + " scores, you are almost there!";
+  } else {
+    questionText.innerHTML = "You've got " + score + " scores! You passed vibe check :)";
+  }
 }
