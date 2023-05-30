@@ -132,7 +132,6 @@ function next() {
 // listener - prev
 function prev() {
   currentQuestion--;
-  score--;
 
   if (currentQuestion <= 0) {
     prevBtn.classList.add('hide');
