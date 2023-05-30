@@ -36,7 +36,7 @@ let questions = [
 ]
 
 // onclick events
-restartBtn.addEventListener('click', (restart));
+restartBtn.addEventListener('click', restart);
 prevBtn.addEventListener('click', prev);
 nextBtn.addEventListener('click', next);
 submitBtn.addEventListener('click', submit);
@@ -79,14 +79,15 @@ beginQuiz();
 
 // listener - restart
 function restart() {
-  currentQuestion = 0;
-  prevBtn.classList.remove('hide');
-  nextBtn.classList.remove('hide');
-  submitBtn.classList.remove('hide');
-  trueBtn.classList.remove('hide');
-  falseBtn.classList.remove('hide');
-  score = 0;
-  userScore.innerHTML = score;
+    prevBtn.classList.remove('hide');
+    nextBtn.classList.remove('hide');
+    submitBtn.classList.remove('hide');
+    trueBtn.classList.remove('hide');
+    falseBtn.classList.remove('hide');
+    score = 0;
+    userScore.innerHTML = score;
+
+    beginQuiz();
 }
 
 // listener - next
