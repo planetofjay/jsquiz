@@ -43,11 +43,6 @@ body {
   color: #49529e;
 }
 
-.questions {
-  margin-bottom: 2rem;
-  font-size: x-large;
-}
-
 .content {
   display: flex;
   justify-content: center;
@@ -55,9 +50,15 @@ body {
   flex-direction: column;
 }
 
+.questions {
+  margin-bottom: 2rem;
+  font-size: x-large;
+}
+
 .btn {
   font-size: large;
   font-weight: bold;
+  background: #51516e;
   border: none;
   border-radius: 12px;
   padding: 10px;

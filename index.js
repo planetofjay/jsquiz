@@ -186,3 +186,18 @@ function submit() {
     questionText.innerHTML = "You've got " + score + " scores! You passed vibe check :)";
   }
 }
+
+// add classList for styles
+document.querySelector('div').classList.add('container');
+document.querySelector('div #score-area').classList.add('score');
+
+document.querySelector('div #question-area').classList.add('content');
+document.querySelector('div #question-area #question-text').classList.add('questions');
+document.querySelector('div #question-area #options').classList.add('options');
+document.querySelector('div #question-area #options #True').classList.add('btn');
+document.querySelector('div #question-area #options #False').classList.add('btn');
+
+document.querySelector('div #btn-area #restart').classList.add('btn');
+document.querySelector('div #btn-area #prev').classList.add('btn');
+document.querySelector('div #btn-area #next').classList.add('btn');
+document.querySelector('div #btn-area #submit').classList.add('btn');
