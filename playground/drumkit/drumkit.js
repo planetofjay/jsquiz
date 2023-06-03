@@ -13,7 +13,7 @@ for (let i = 0; i < numberOfDrumBtn; i++) {
         break;
 
       case "a":
-        let kick = new Audio("./sounds/kick.mp3");
+        let kick = new Audio("./sounds/kick-bass.mp3");
         kick.play();
         break;
 
