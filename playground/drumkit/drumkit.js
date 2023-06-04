@@ -63,3 +63,26 @@ function makeSound(key) {
   }
 
 }
+
+
+function anotherAddEventListener(typeOfEvent, callback) {
+
+  let eventThatHappened = {
+    eventType: "keydown",
+    key: "d",
+    durationOfKeypress: 2,
+  }
+
+  if (eventThatHappened.eventType === typeOfEvent) {
+    callback(eventThatHappened);
+  }
+
+}
+
+anotherAddEventListener("keydown", function(event) {
+  console.log(event);
+});
+
+document.addEventListener("keydown", function(event) {
+  console.log(event);
+});
