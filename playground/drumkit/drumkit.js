@@ -9,6 +9,8 @@ for (let i = 0; i < numberOfDrumBtn; i++) {
 
     makeSound(btnInnerHTML);
 
+    btnAnimation(btnInnerHTML);
+
   });
 
 }
@@ -17,6 +19,8 @@ for (let i = 0; i < numberOfDrumBtn; i++) {
 document.addEventListener("keydown", function (event) {
 
   makeSound(event.key);
+
+  btnAnimation(event.key);
 
 });
 
@@ -64,25 +68,37 @@ function makeSound(key) {
 
 }
 
+// button animation
+function btnAnimation(currentKey) {
 
-function anotherAddEventListener(typeOfEvent, callback) {
+  let activeBtn = document.querySelector("." + currentKey);
 
-  let eventThatHappened = {
-    eventType: "keydown",
-    key: "d",
-    durationOfKeypress: 2,
-  }
+  activeBtn.classList.add("pressed");
 
-  if (eventThatHappened.eventType === typeOfEvent) {
-    callback(eventThatHappened);
-  }
-
+  setTimeout(function() {
+    activeBtn.classList.remove("pressed");
+  }, 100);  
+  
 }
 
-anotherAddEventListener("keydown", function(event) {
-  console.log(event);
-});
+// function anotherAddEventListener(typeOfEvent, callback) {
 
-document.addEventListener("keydown", function(event) {
-  console.log(event);
-});
+//   let eventThatHappened = {
+//     eventType: "keydown",
+//     key: "d",
+//     durationOfKeypress: 2,
+//   }
+
+//   if (eventThatHappened.eventType === typeOfEvent) {
+//     callback(eventThatHappened);
+//   }
+
+// }
+
+// anotherAddEventListener("keydown", function(event) {
+//   console.log(event);
+// });
+
+// document.addEventListener("keydown", function(event) {
+//   console.log(event);
+// });
