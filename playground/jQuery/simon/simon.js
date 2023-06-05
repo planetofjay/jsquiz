@@ -19,53 +19,42 @@ $(".btn").on("click", function() {
   userClickedPattern.push(userChosenColour);
   
   playSound(userChosenColour);
-
   animatePress(userChosenColour);
 
-  // passing in the index of last answer in the user's sequence.
   checkAnswer(userClickedPattern.length - 1);
 });
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-    console.log("success");
     if (userClickedPattern.length === gamePattern.length) {
       setTimeout(() => {
-        nextSequence
+        nextSequence();
       }, 1000);
     }
   } else {
-    console.log("fail");
-
     playSound("wrong");
-
     $("body").addClass("game-over");
+    $("#level-title").text("Game Over, Press Any Key to Restart");
+
     setTimeout(() => {
       $("body").removeClass("game-over");
     }, 200);
 
-    $("#level-title").text("Game Over, Press Any Key to Restart");
-
-    // if the user gets the sequence wrong.
     startOver();
   }
 }
 
 function nextSequence() {
-  // when it's triggered, reset the userClickedPattern to an empty array ready for the next level.
   userClickedPattern = [];
-
   level++;
 
   $("#level-title").text("Level " + level);
 
   let randomNumber = Math.floor(Math.random() * 4);
   let randomChosenColour = buttonColours[randomNumber];
-
   gamePattern.push(randomChosenColour);
   
   $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-  
   playSound(randomChosenColour);
 }
 
@@ -82,7 +71,6 @@ function animatePress(currentColour) {
 }
 
 function startOver() {
-  // reset the values
   level = 0;
   gamePattern = [];
   started = false;
