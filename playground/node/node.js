@@ -1,24 +1,21 @@
-import inquirer from "inquirer";
-import qr from "qr-image";
-import fs from "fs";
+import http from "http";
+import url from "url";
 
-inquirer
-  .prompt([
-    {
-      message: "Type in your URL: ",
-      name: "URL",
-    },
-  ])
-  .then((answers) => {
-    const url = answers.URL;
-    var qr_svg = qr.image(url);
-    qr_svg.pipe(fs.createWriteStream("qr_img.png"));
+const server = http.createServer((req, res) => {
+  const parsedUrl = url.parse(req.url, true);
 
-    fs.writeFile("URL.txt", url, (err) => {
-      if (err) throw err;
-      console.log("The file has been saved!");
-    });
-  })
-  .catch((error) => {
-    if (error.isTtyError) { } else { }
-  });
+  if (parsedUrl.pathname === "/" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end("<h1>Welcome to the homepage.</h1>");
+  } else if (parsedUrl.pathname === "/about" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end("<h1>About Us</h1>");
+  } else {
+    res.writeHead(404, { "Content-Type": "text/html" });
+    res.end("<h1>Page Not Found</h1>");
+  }
+});
+
+server.listen(3000, () => {
+  console.log("Server running at https://localhost:5000/");
+});
