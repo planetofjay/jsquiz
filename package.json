@@ -3,9 +3,7 @@
   "name": "jsquiz",
   "description": "Code with javaScript...,html, css.",
   "version": "1.0.0",
-
   "main": "calculator.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,10 +22,11 @@
   "author": "Jaejin Lee <jae44dv@gmail.com> (https://planetofjay.github.io)",
   "license": "",
   "bugs": {},
-
   "dependencies": {
     "express": "^4.18.2",
     "inquirer": "^9.2.7",
-    "qr-image": "^3.2.0"
+    "path": "^0.12.7",
+    "qr-image": "^3.2.0",
+    "url": "^0.11.1"
   }
 }
