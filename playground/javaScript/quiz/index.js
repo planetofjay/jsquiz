@@ -1,4 +1,3 @@
-// const variables
 const restartBtn = document.getElementById('restart');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -178,11 +177,14 @@ function submit() {
 
   if (score === 0) {
     questionText.innerHTML = "You've got " + score + " score, you should try again LOL.";
-  } else if (score === 1) {
+  } 
+  else if (score === 1) {
     questionText.innerHTML = "You've got " + score + " score, there is still a chance.";
-  } else if (score === 2) {
+  } 
+  else if (score === 2) {
     questionText.innerHTML = "You've got " + score + " scores, you are almost there!";
-  } else {
+  } 
+  else {
     questionText.innerHTML = "You've got " + score + " scores! You passed vibe check :)";
   }
 }

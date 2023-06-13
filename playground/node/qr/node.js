@@ -7,10 +7,12 @@ const server = http.createServer((req, res) => {
   if (parsedUrl.pathname === "/" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end("<h1>Welcome to the homepage.</h1>");
-  } else if (parsedUrl.pathname === "/about" && req.method === "GET") {
+  } 
+  else if (parsedUrl.pathname === "/about" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end("<h1>About Us</h1>");
-  } else {
+  } 
+  else {
     res.writeHead(404, { "Content-Type": "text/html" });
     res.end("<h1>Page Not Found</h1>");
   }
