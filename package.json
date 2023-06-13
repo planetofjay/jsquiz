@@ -1,18 +1,33 @@
 {
   "type": "module",
-  "dependencies": {
-    "inquirer": "^9.2.7",
-    "qr-image": "^3.2.0"
-  },
   "name": "jsquiz",
-  "description": "",
+  "description": "Code with javaScript...,html, css.",
   "version": "1.0.0",
-  "main": "node.js",
-  "devDependencies": {},
+
+  "main": "calculator.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Jaejin L.",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/planetofjay/jsquiz.git"
+  },
+  "keywords": [
+    "JS journey",
+    "es6",
+    "javaScript",
+    "node",
+    "express",
+    "jsx"
+  ],
+  "author": "Jaejin Lee <jae44dv@gmail.com> (https://planetofjay.github.io)",
+  "license": "",
+  "bugs": {},
+
+  "dependencies": {
+    "express": "^4.18.2",
+    "inquirer": "^9.2.7",
+    "qr-image": "^3.2.0"
+  }
 }
