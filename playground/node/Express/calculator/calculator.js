@@ -21,3 +21,9 @@ app.get("/", function(req,res){
 app.listen(3000, function(req,res){
   console.log("Server is running on port 3000");
 });
+
+/**
+ * "Unchecked runtime.lastError: The message port closed before a response was received."
+ * The cause of this issue is related to one of your chrome extensions, not CORS or CORB. 
+ * To fix that you can turn off each and every chrome extension you installed.
+ */
