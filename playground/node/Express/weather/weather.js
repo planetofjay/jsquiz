@@ -5,13 +5,19 @@ const app = express();
 
 app.get("/", function(req,res){
 
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=" + process.WEATHER_API_KEY + "&units=metric";
+  const city = "Toronto";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`;
   
   https.get(url, function(response){
     console.log(response.statusCode);
 
     response.on("data", function(data){
-      console.log(data);
+      const weatherData = JSON.parse(data);
+      const object = {
+        name: "Jaejin",
+        favouriteColor: "Black"
+      }
+      console.log(JSON.stringify(object));
     })
   });
 
