@@ -20,7 +20,7 @@
     "jsx"
   ],
   "author": "Jaejin Lee <jae44dv@gmail.com> (https://planetofjay.github.io)",
-  "license": "",
+  "license": "ISC",
   "bugs": {},
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -28,6 +28,7 @@
     "inquirer": "^9.2.7",
     "path": "^0.12.7",
     "qr-image": "^3.2.0",
+    "request": "^2.88.2",
     "url": "^0.11.1"
   }
 }
