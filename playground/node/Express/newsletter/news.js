@@ -7,6 +7,7 @@ import request from "request";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import https from "https";
+import 'dotenv/config';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -23,6 +24,7 @@ app.post("/", function(req, res){
   const firstName = req.body.fName;
   const lastName = req.body.lName;
   const email = req.body.email;
+
   const data = {
     members: [
       {
@@ -35,12 +37,15 @@ app.post("/", function(req, res){
       }
     ]
   };
+  
   const jsonData = JSON.stringify(data);
   const url = `https://us21.api.mailchimp.com/3.0/lists/${process.env.MAIL_UNIQUE_KEY}`;
+
   const options = {
     method: "POST",
     auth: `jay1:${process.env.MAIL_API_KEY}`
   };
+
   const request = https.request(url, options, function(response){
     response.on("data", function(data){
       console.log(JSON.parse(data));
