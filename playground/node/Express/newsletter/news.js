@@ -1,5 +1,4 @@
 //jshint esversion: 6
-//Newsletter-Signup
 
 import express from "express";
 import bodyParser from "body-parser";
@@ -37,16 +36,22 @@ app.post("/", function(req, res){
       }
     ]
   };
-  
+
   const jsonData = JSON.stringify(data);
   const url = `https://us21.api.mailchimp.com/3.0/lists/${process.env.MAIL_UNIQUE_KEY}`;
 
   const options = {
     method: "POST",
-    auth: `jay1:${process.env.MAIL_API_KEY}`
+    auth: `jay1:1${process.env.MAIL_API_KEY}`
   };
 
   const request = https.request(url, options, function(response){
+    if (response.statusCode === 200) {
+      res.sendFile(__dirname + "/success.html");
+    } else {
+      res.sendFile(__dirname + "/failure.html");
+    }
+
     response.on("data", function(data){
       console.log(JSON.parse(data));
     });
@@ -54,6 +59,10 @@ app.post("/", function(req, res){
   
   request.write(jsonData);
   request.end();
+});
+
+app.post("/failure", function(req, res){
+  res.redirect("/");
 });
  
 app.listen(3000, function(){
