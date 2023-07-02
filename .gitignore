@@ -1,5 +1,12 @@
-# gitignore
+# Project-wide
+.DS_Store 
 
-node_modules
+# Logs
+logs
+*.log
+
+# Dependency directory
+node_modules/
+
+# dotenv environment variable file
 .env
-.DS_Store
