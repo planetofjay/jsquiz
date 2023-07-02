@@ -42,7 +42,7 @@ app.post("/", function(req, res){
 
   const options = {
     method: "POST",
-    auth: `jay1:1${process.env.MAIL_API_KEY}`
+    auth: `jay1:${process.env.MAIL_API_KEY}`
   };
 
   const request = https.request(url, options, function(response){
