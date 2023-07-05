@@ -2,17 +2,25 @@
 
 import express from "express";
 import bodyParser from "body-parser";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.get("/", function (req, res) {
 
   let today = new Date();
+  let currentDay = today.getDay();
+  let day = "";
 
-  if (today.getDay() === 6 || today.getDay() === 0) {
-    res.send("It's the weekend!");
+  if (currentDay === 6 || currentDay === 0) {
+    day = "Weekend";
+    res.sendFile(__dirname + "/weekend.html");
   } else {
-    res.send("It's time to work!");
+    day = "Weekday"
+    res.sendFile(__dirname + "/weekday.html");
   }
 
 });
