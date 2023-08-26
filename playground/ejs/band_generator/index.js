@@ -10,11 +10,14 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  //Make the get route work and render the ejs file
+  res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
-  //Make the generate name functionality work
+  const randomAdj = adj[Math.floor(Math.random() * adj.length)];
+  const randomNoun = noun[Math.floor(Math.random() * noun.length)];
+
+  res.render("index.ejs", { adjective: randomAdj, noun: randomNoun });
 });
 
 app.listen(port, () => {
