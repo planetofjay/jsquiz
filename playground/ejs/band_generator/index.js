@@ -4,8 +4,7 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-// Make the styling show up
-// Add a year to the footer (dynamic)
+app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
